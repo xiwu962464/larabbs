@@ -8,6 +8,12 @@ class Topic extends Model
         'title', 'body', 'category_id', 'excerpt', 'slug'
     ];
 
+    // 一篇帖子下有多条回复
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
